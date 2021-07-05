@@ -3,4 +3,4 @@ common-DELETE
 .idea
 __pycache__
 logs
-venv
+venv/lib
