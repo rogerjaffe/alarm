@@ -33,6 +33,12 @@ pilot_on()
 # Configure text messaging
 from text_messaging import Text_Messaging
 text = Text_Messaging()
+text.sendText("Alarm monitoring is starting")
+
+#################################################################
+# Print status message
+print("Alarm sensor monitoring starting up")
+
 
 #################################################################
 # Zone tripped / reset functions
@@ -57,14 +63,13 @@ email_log = Email_Log()
 
 #################################################################
 # Set up alarm sensors as buttons
+buttons = []
 for gpio in constants.GPIOS:
     button = Button(gpio, pull_up=False)
     button.when_pressed = zone_tripped
     button.when_released = zone_reset
-
-#################################################################
-# Set up alarm sensors as buttons
-print("Alarm sensor monitoring starting up")
+    buttons.append(button)
+    print(constants.GPIOS[gpio]["DESCRIPTION"]+" configured")
 
 # Wait for stuff to happen!
 from signal import pause

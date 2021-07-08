@@ -41,6 +41,13 @@ GPIOS = {
     "GPIO": 4,
     "PULL": False,
   },
+  "5": {
+    "ZONE_ID": 6,
+    "PIN": 29,
+    "DESCRIPTION": "Garage door",
+    "GPIO": 5,
+    "PULL": False
+  },
   "17": {
     "ZONE_ID": 1,
     "PIN": 11,
@@ -76,11 +83,4 @@ GPIOS = {
     "GPIO": 23,
     "PULL": False
   },
-  "5": {
-    "ZONE_ID": 6,
-    "PIN": 29,
-    "DESCRIPTION": "Garage door",
-    "GPIO": 5,
-    "PULL": False
-  }
 }
