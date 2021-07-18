@@ -39,7 +39,6 @@ text.sendText("Alarm monitoring is starting")
 # Print status message
 print("Alarm sensor monitoring starting up")
 
-
 #################################################################
 # Zone tripped / reset functions
 def zone_tripped(btn):
@@ -47,14 +46,14 @@ def zone_tripped(btn):
     message = constants.GPIOS[str(btn.pin.number)]["DESCRIPTION"]+" TRIPPED"
     alarm_logger.log_message(message)
     text.sendText(message)
-    print(message)
+    print("Tripped message sent")
 
 def zone_reset(btn):
     import alarm_logger
     message = constants.GPIOS[str(btn.pin.number)]["DESCRIPTION"] + " RESET"
     alarm_logger.log_message(message)
-    text.sendText(message)
-    print(message)
+    # text.sendText(message)
+    # print("Reset message sent")
 
 #################################################################
 # Set up logger daily email
@@ -65,9 +64,9 @@ email_log = Email_Log()
 # Set up alarm sensors as buttons
 buttons = []
 for gpio in constants.GPIOS:
-    button = Button(gpio, pull_up=False)
-    button.when_pressed = zone_tripped
-    button.when_released = zone_reset
+    button = Button(gpio, pull_up=True)
+    button.when_pressed = zone_reset
+    button.when_released = zone_tripped
     buttons.append(button)
     print(constants.GPIOS[gpio]["DESCRIPTION"]+" configured")
 

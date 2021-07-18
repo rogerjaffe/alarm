@@ -22,7 +22,7 @@
 
 1. Transfer files / folders to R-Pi via SCP 
 
-    `scp -rp <file/folder> pi@192.168.0.182:~/`
+    `scp -r <file/folder> pi@192.168.0.182:~/`
 
 1. Install requirements with pip3 install -r requirements.txt
 
